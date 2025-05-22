@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - TookMall</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <nav>
+        <ul class="side-bar">
+            <li onclick="hideSidebar()"><a href="#" style="font-size: 26px;"><i class="fa fa-times" aria-hidden="true"></i></a></li>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="product.html">Product</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="profile.html" class="profile-link" style="display: none;">Profile</a></li>
+            <li><a href="login.html" class="login-link">Login</a></li>
+            <li><a href="#" class="logout-btn" onclick="handleLogout()" style="display: none;">Logout</a></li>
+        </ul>
+        <ul>
+            <li><a href="index.html"><img src="images/tookmall-logo.png" width="60%" alt="TookMall Logo"></a></li>
+            <li class="hideOnmobile"><a href="index.html">Home</a></li>
+            <li class="hideOnmobile"><a href="product.html">Product</a></li>
+            <li class="hideOnmobile"><a href="about.html">About</a></li>
+            <li class="hideOnmobile"><a href="profile.html" class="profile-link" style="display: none;">Profile</a></li>
+            <li class="hideOnmobile"><a href="login.html" class="login-link">Login</a></li>
+            <li class="menubutton" onclick="showSidebar()"><a href="#"><i class="fa fa-bars" style="font-size: 26px;"></i></a></li>
+        </ul>
+    </nav>
+
+    <div class="checkout-container">
+        <div class="checkout-header">
+            <h1>Checkout</h1>
+            <p class="subtitle">Complete your purchase</p>
+            <div class="checkout-steps">
+                <div class="step active">
+                    <i class="fa fa-shopping-cart"></i>
+                    <span>Cart</span>
+                </div>
+                <div class="step active">
+                    <i class="fa fa-credit-card"></i>
+                    <span>Payment</span>
+                </div>
+                <div class="step">
+                    <i class="fa fa-check-circle"></i>
+                    <span>Confirmation</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="checkout-content">
+            <div class="checkout-form-container">
+                <form id="checkout-form" class="checkout-form">
+                    <!-- Shipping Information -->
+                    <section class="form-section">
+                        <h2><i class="fa fa-truck"></i> Shipping Information</h2>
+                        <div class="form-group">
+                            <label for="fullName">Full Name</label>
+                            <input type="text" id="fullName" name="fullName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="address">Street Address</label>
+                            <input type="text" id="address" name="address" required>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="city">City</label>
+                                <input type="text" id="city" name="city" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="postalCode">Postal Code</label>
+                                <input type="text" id="postalCode" name="postalCode" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="country">Country</label>
+                            <select id="country" name="country" required>
+                                <option value="">Select Country</option>
+                                <option value="PH">Philippines</option>
+                                <option value="US">United States</option>
+                                <option value="CA">Canada</option>
+                                <option value="UK">United Kingdom</option>
+                            </select>
+                        </div>
+                    </section>
+
+                    <!-- Payment Method -->
+                    <section class="form-section">
+                        <h2><i class="fa fa-credit-card"></i> Payment Method</h2>
+                        <div class="payment-methods">
+                            <div class="payment-method">
+                                <input type="radio" id="creditCard" name="paymentMethod" value="creditCard" checked>
+                                <label for="creditCard">
+                                    <i class="fa fa-credit-card"></i>
+                                    Credit Card
+                                </label>
+                            </div>
+                            <div class="payment-method">
+                                <input type="radio" id="gcash" name="paymentMethod" value="gcash">
+                                <label for="gcash">
+                                    <i class="fa fa-mobile"></i>
+                                    GCash
+                                </label>
+                            </div>
+                            <div class="payment-method">
+                                <input type="radio" id="cod" name="paymentMethod" value="cod">
+                                <label for="cod">
+                                    <i class="fa fa-money"></i>
+                                    Cash on Delivery
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Credit Card Details -->
+                        <div id="creditCardDetails" class="payment-details">
+                            <div class="form-group">
+                                <label for="cardNumber">Card Number</label>
+                                <input type="text" id="cardNumber" name="cardNumber" placeholder="1234 5678 9012 3456" maxlength="19">
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="expiryDate">Expiry Date</label>
+                                    <input type="text" id="expiryDate" name="expiryDate" placeholder="MM/YY" maxlength="5">
+                                </div>
+                                <div class="form-group">
+                                    <label for="cvv">CVV</label>
+                                    <input type="text" id="cvv" name="cvv" placeholder="123" maxlength="3">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="cardName">Name on Card</label>
+                                <input type="text" id="cardName" name="cardName">
+                            </div>
+                        </div>
+
+                        <!-- GCash Details -->
+                        <div id="gcashDetails" class="payment-details" style="display: none;">
+                            <div class="form-group">
+                                <label for="gcashNumber">GCash Number</label>
+                                <input type="tel" id="gcashNumber" name="gcashNumber" placeholder="09XX XXX XXXX" maxlength="11">
+                            </div>
+                        </div>
+                    </section>
+
+                    <div class="form-actions">
+                        <button type="button" class="back-button" onclick="window.history.back()">
+                            <i class="fa fa-arrow-left"></i> Back to Cart
+                        </button>
+                        <button type="submit" class="place-order-button">
+                            Place Order <i class="fa fa-lock"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Order Summary -->
+            <div class="order-summary">
+                <h2><i class="fa fa-shopping-bag"></i> Order Summary</h2>
+                <div id="order-items">
+                    <!-- Order items will be dynamically added here -->
+                </div>
+                <div class="order-totals">
+                    <div class="order-row">
+                        <span>Subtotal</span>
+                        <span id="subtotal">₱0.00</span>
+                    </div>
+                    <div class="order-row">
+                        <span>Shipping</span>
+                        <span id="shipping">₱0.00</span>
+                    </div>
+                    <div class="order-row total">
+                        <span>Total</span>
+                        <span id="total">₱0.00</span>
+                    </div>
+                </div>
+                <div class="secure-checkout">
+                    <i class="fa fa-lock"></i>
+                    <span>Secure Checkout</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 

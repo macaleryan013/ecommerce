@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - TookMall</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body class="login-page">
+    <nav>
+        <ul>
+            <li><a href="index.html"><img src="images/tookmall-logo.png" width="60%" alt="TookMall Logo"></a></li>
+            <li class="hideOnmobile"><a href="index.html">Home</a></li>
+            <li class="hideOnmobile"><a href="product.html">Product</a></li>
+            <li class="hideOnmobile"><a href="about.html">About</a></li>
+            <li class="hideOnmobile"><a href="profile.html" class="profile-link" style="display: none;">Profile</a></li>
+            <li class="hideOnmobile"><a href="login.html" class="login-link">Login</a></li>
+        </ul>
+    </nav>
+    
+    <div class="login-container">
+        <div class="login-header">
+            <img src="images/tookmall-logo.png" alt="TookMall Logo" class="login-logo">
+            <h2>Welcome Back</h2>
+            <p class="login-subtitle">Sign in to your account</p>
+        </div>
+        
+        <form id="loginForm" class="login-form" onsubmit="handleLogin(event)">
+            <div class="form-group">
+                <label for="username">
+                    <i class="fa fa-user"></i>
+                    Username
+                </label>
+                <input type="text" id="username" name="username" placeholder="Enter your username" required autofocus>
+            </div>
+            
+            <div class="form-group">
+                <label for="password">
+                    <i class="fa fa-lock"></i>
+                    Password
+                </label>
+                <input type="password" id="password" name="password" placeholder="Enter your password" required>
+            </div>
+            
+            <div class="form-options">
+                <label class="remember-me">
+                    <input type="checkbox" id="remember">
+                    <span>Remember me</span>
+                </label>
+                <a href="#" class="forgot-password">Forgot password?</a>
+            </div>
+            
+            <button type="submit" class="login-button">
+                <i class="fa fa-sign-in"></i>
+                Sign In
+            </button>
+        </form>
+        
+        <div class="login-footer">
+            <p>Don't have an account? <a href="#" class="signup-link">Sign up</a></p>
+            <a href="index.html" class="back-link">
+                <i class="fa fa-arrow-left"></i>
+                Back to Home
+            </a>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 

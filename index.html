@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        
+        <title>Home</title>
+    </head>
+
+    <body>
+        <nav>
+            
+            <ul class="side-bar">
+                <li onclick="hideSidebar()"><a href="#" style="font-size: 26px;"><i class="fa fa-times" aria-hidden="true"></i></a></li>
+                <li id="active"><a href="#">Home</a></li>
+                <li><a href="product.html">Product</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="profile.html">Profile</a></li>
+            </ul>
+            <ul>
+                <li><a href="#"><img src="images/tookmall-logo.png" width="60%"></a></li>
+                <!-- <li><a href="#"><i class="fa fa-shopping-cart" style="font-size: 26px;"></i></a></li> -->
+                <li id="active" class="hideOnmobile"><a href="index.html">Home</a></li>
+                <li class="hideOnmobile"><a href="product.html">Product</a></li>
+                <li class="hideOnmobile"><a href="about.html">About</a></li>
+                <li class="hideOnmobile"><a href="profile.html" class="profile-link" style="display: none;">Profile</a></li>
+                <li class="hideOnmobile"><a href="login.html" class="login-link">Login</a></li>
+                <li class="menubutton" onclick="showSidebar()"><a href="#"><i class="fa fa-bars" style="font-size: 26px;"></i></a></li>
+            </ul>
+        </nav>
+
+
+        <div class="welcome">
+
+            <img src="images/tookmall-logo.png" alt="Tookmall Logo" class="logo">
+
+            <p>We are glad to have you here. Explore our products and enjoy shopping!</p>
+            <button class="explore-button"><a href="product.html">Explore Products</a></button>
+
+            <h2 id="featured-heading">Featured Products</h2>
+        </div>
+        
+        
+
+        <div class="featured">
+            <div class="product-grid">
+                <div class="product-card">
+                    <div class="product-badge">New</div>
+                    <img src="images/product1.jpg" alt="Men's single shoulder bag">
+                    <div class="product-info">
+                        <h3>Men's single shoulder bag</h3>
+                        <div class="product-details">
+                            <div class="product-rating">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star-half-o"></i>
+                            </div>
+                            <p class="product-price">₱120</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <img src="images/product2.jpg" alt="White Undershirt Summer Hurdle">
+                    <div class="product-info">
+                        <h3>White Undershirt Summer Hurdle</h3>
+                        <div class="product-details">
+                            <div class="product-rating">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star-o"></i>
+                            </div>
+                            <p class="product-price">₱150</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <img src="images/product3.jpg" alt="Nike Air Force 1">
+                    <div class="product-info">
+                        <h3>Nike Air Force 1</h3>
+                        <div class="product-details">
+                            <div class="product-rating">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            </div>
+                            <p class="product-price">₱1,250</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <img src="images/product4.jpg" alt="AULA SC580 Wireless Mouse">
+                    <div class="product-info">
+                        <h3>AULA SC580 Wireless Mouse</h3>
+                        <div class="product-details">
+                            <div class="product-rating">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            </div>
+                            <p class="product-price">₱869</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </body>
+    <script src="script.js"></script>
+</html>

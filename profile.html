@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        
+        <title>Profile</title>
+    </head>
+
+    <body>
+        <nav>
+            
+            <ul class="side-bar">
+                <li onclick="hideSidebar()"><a href="#" style="font-size: 26px;"><i class="fa fa-times" aria-hidden="true"></i></a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="product.html">Product</a></li>
+                <li><a href="about.html">About</a></li>
+                <li id="active"><a href="#">Profile</a></li>
+                <li><a href="#" class="logout-btn" onclick="handleLogout()">Logout</a></li>
+            </ul>
+            <ul>
+                <li><a href="#"><img src="images/tookmall-logo.png" width="60%"></a></li>
+                <li class="hideOnmobile"><a href="index.html">Home</a></li>
+                <li class="hideOnmobile"><a href="product.html">Product</a></li>
+                <li class="hideOnmobile"><a href="about.html  ">About</a></li>
+                <li id="active" class="hideOnmobile"><a href="profile.html" class="profile-link" style="display: none;">Profile</a></li>
+                <li class="hideOnmobile"><a href="login.html" class="login-link">Login</a></li>
+                <li class="menubutton" onclick="showSidebar()"><a href="#"><i class="fa fa-bars" style="font-size: 26px;"></i></a></li>
+            </ul>
+        </nav>
+
+        <div class="profile">
+
+        <div class="container profile-container" role="main" aria-label="Profile Settings">
+
+            <h2>Profile Setting</h2>
+
+            <form id="profileForm" novalidate>
+
+              <div class="profile-pic-wrapper" title="Click to upload profile picture">
+                <input type="file" id="profilePicInput" accept="image/*"/>
+                <img src="https://cdn-icons-png.flaticon.com/512/194/194938.png" alt="Profile picture preview" id="profilePicPreview" />
+              </div>
+
+              <div>
+                <label for="nameInput">Name</label>
+                <br/>
+                <input type="text" id="nameInput" name="name" placeholder="Your name"/>
+              </div>
+
+              <div>
+                <label for="contactInput">Contact Number</label>
+                <br/>
+                <input type="tel" id="contactInput" name="contact" placeholder="09123456789"/>
+              </div>
+
+              <div>
+                <label for="emailInput">Email</label>
+                <br>
+                <input type="email" id="emailInput" name="email" placeholder="you@example.com" required autocomplete="email"/>
+              </div>
+        
+              <div class="button-group">
+                <button type="submit" class="save-btn">Save</button>
+                <button type="button" class="logout-btn" onclick="handleLogout()">Logout</button>
+              </div>
+
+            </form>
+
+          </div>
+
+          </div>
+        
+
+    </body>
+    <script src="script.js"></script>
+</html>

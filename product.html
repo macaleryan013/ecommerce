@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        
+        <title>Products - TookMall</title>
+    </head>
+
+    <body>
+        <nav>
+            
+            <ul class="side-bar">
+
+                <li onclick="hideSidebar()"><a href="#" style="font-size: 26px;"><i class="fa fa-times" aria-hidden="true"></i></a></li>
+                
+                <li><a href="index.html">Home</a></li>
+               
+                <li id="active"><a href="product.html">Product</a></li>
+                
+                <li><a href="about.html">About</a></li>
+                
+                <li><a href="profile.html">Profile</a></li>
+
+            </ul>
+            <ul>
+                <li><a href="#"><img src="images/tookmall-logo.png" width="60%"></a></li>
+                <li id="shopping-cart" onclick="showCart()"><a href="#"><i class="fa fa-shopping-cart" style="font-size: 26px;"><span>0</span></i></a></li>
+                <li class="hideOnmobile"><a href="index.html">Home</a></li>
+                <li id="active" class="hideOnmobile"><a href="product.html">Product</a></li>
+                <li class="hideOnmobile"><a href="about.html">About</a></li>
+                <li class="hideOnmobile"><a href="profile.html" class="profile-link" style="display: none;">Profile</a></li>
+                <li class="hideOnmobile"><a href="login.html" class="login-link">Login</a></li>
+                <li class="menubutton" onclick="showSidebar()"><a href="#"><i class="fa fa-bars" style="font-size: 26px;"></i></a></li>
+            </ul>
+        </nav>
+
+        <div class="product-header">
+            <h1>LATEST FROM THE MALL</h1>
+            <p>Find everything you want directly from the mall</p>
+            
+            <!-- Add search and filter section -->
+            <div class="search-filter-container">
+                <div class="search-box">
+                    <input type="text" id="search-input" placeholder="Search products...">
+                    <button onclick="searchProducts()"><i class="fa fa-search"></i></button>
+                </div>
+                <div class="filter-options">
+                    <select id="category-filter" onchange="filterProducts()">
+                        <option value="">All Categories</option>
+                        <option value="electronics">Electronics</option>
+                        <option value="clothing">Clothing</option>
+                        <option value="accessories">Accessories</option>
+                        <option value="home">Home & Kitchen</option>
+                    </select>
+                    <select id="price-filter" onchange="filterProducts()">
+                        <option value="">Price Range</option>
+                        <option value="0-500">Under ₱500</option>
+                        <option value="500-1000">₱500 - ₱1,000</option>
+                        <option value="1000-5000">₱1,000 - ₱5,000</option>
+                        <option value="5000+">Over ₱5,000</option>
+                    </select>
+                    <select id="sort-by" onchange="sortProducts()">
+                        <option value="">Sort By</option>
+                        <option value="price-low">Price: Low to High</option>
+                        <option value="price-high">Price: High to Low</option>
+                        <option value="name">Name: A to Z</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="product-container">
+
+            <div class="product-card" data-category="accessories" data-price="120">
+                <div class="product-badge">New</div>
+                <img src="images/product1.jpg" alt="Men's single shoulder bag">
+                <div class="product-info">
+                    <h3>Men's single shoulder bag</h3>
+                    <div class="product-rating">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star-half-o"></i>
+                        <span>(4.5)</span>
+                    </div>
+                    <p class="product-price">₱120</p>
+                    <button onclick="addToCart('Men\'s single shoulder bag', 120)">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="clothing" data-price="150">
+                <img src="images/product2.jpg" alt="White Undershirt Summer Hurdle">
+                <div class="product-info">
+                    <h3>White Undershirt Summer Hurdle</h3>
+                    <div class="product-rating">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star-o"></i>
+                        <span>(4.0)</span>
+                    </div>
+                    <p class="product-price">₱150</p>
+                    <button onclick="addToCart('White Undershirt Summer Hurdle', 150)">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="clothing" data-price="1250">
+                <img src="images/product3.jpg" alt="Nike Air Force 1">
+                <div class="product-info">
+                    <h3>Nike Air Force 1</h3>
+                    <div class="product-rating">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <span>(5.0)</span>
+                    </div>
+                    <p class="product-price">₱1250</p>
+                    <button onclick="addToCart('Nike Air Force 1', 1250)">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="electronics" data-price="869">
+                <img src="images/product4.jpg" alt="AULA SC580 Wireless Mouse">
+                <div class="product-info">
+                    <h3>AULA SC580 Wireless Mouse</h3>
+                    <div class="product-rating">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <span>(5.0)</span>
+                    </div>
+                    <p class="product-price">₱869</p>
+                    <button onclick="addToCart('AULA SC580 Wireless Mouse', 869)">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="electronics" data-price="4778">
+                <img src="images/product5.jpg" alt="KZZI Kezhi Z98 Nezuko Purple 94 Key Bluetooth Wireless With TFT Screen RGB Gaming Keyboard">
+                <div class="product-info">
+                    <h3>KZZI Kezhi Z98 Nezuko Purple 94 Key Bluetooth Wireless With TFT Screen RGB Gaming Keyboard</h3>
+                    <div class="product-rating">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <span>(5.0)</span>
+                    </div>
+                    <p class="product-price">₱4778</p>
+                    <button onclick="addToCart('KZZI Kezhi Z98 Nezuko Purple 94 Key Bluetooth Wireless With TFT Screen RGB Gaming Keyboard', 4778)">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="accessories" data-price="4399">
+                <img src="images/product6.jpg" alt="MUSSO Poinner Series A Gaming Chair">
+                <div class="product-info">
+                    <h3>MUSSO Poinner Series A Gaming Chair <br><br></h3>
+                    <div class="product-rating">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <span>(5.0)</span>
+                    </div>
+                    <p class="product-price">₱4399</p>
+                    <button onclick="addToCart('MUSSO Poinner Series A Gaming Chair', 4399)">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="clothing" data-price="249">
+                <img src="images/product7.jpg" alt="O-Neck Printing Party Mini Dress">
+                <div class="product-info">
+                    <h3>O-Neck Printing Party Mini Dress <br><br></h3>
+                    <div class="product-rating">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star-o"></i>
+                        <span>(4.0)</span>
+                    </div>
+                    <p class="product-price">₱249</p>
+                    <button onclick="addToCart('O-Neck Printing Party Mini Dress', 249)">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="home" data-price="239">
+                <img src="images/product8.jpg" alt="Dreepor Mini Rice Cooker">
+                <div class="product-info">
+                    <h3>Dreepor Mini Rice Cooker <br><br></h3>
+                    <div class="product-rating">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star-o"></i>
+                        <span>(4.0)</span>
+                    </div>
+                    <p class="product-price">₱239</p>
+                    <button onclick="addToCart('Dreepor Mini Rice Cooker', 239)">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="clothing" data-price="349">
+                <img src="images/product9.jpg" alt="ZANZEA Women Street Fashion Spring Autumn High Waist A-line Satin Party Prom Pleated Maxi Skirt">
+                <div class="product-info">
+                    <h3>ZANZEA Women Street Fashion Spring Autumn High Waist A-line Satin Party Prom Pleated Maxi Skirt</h3>
+                    <div class="product-rating">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star-o"></i>
+                        <span>(4.0)</span>
+                    </div>
+                    <p class="product-price">₱349</p>
+                    <button onclick="addToCart('ZANZEA Women Street Fashion Spring Autumn High Waist A-line Satin Party Prom Pleated Maxi Skirt', 349)">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="electronics" data-price="759">
+                <img src="images/product10.jpg" alt="UGREEN Open Ear S3 IPX5 Bluetooth Earphone Ear-clip Design Hook Earbuds Open Audio TWS Sport Earphone">
+                <div class="product-info">
+                    <h3>UGREEN Open Ear S3 IPX5 Bluetooth Earphone Ear-clip Design Hook Earbuds Open Audio TWS Sport Earphone</h3>
+                    <div class="product-rating">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star-o"></i>
+                        <span>(4.0)</span>
+                    </div>
+                    <p class="product-price">₱759</p>
+                    <button onclick="addToCart('UGREEN Open Ear S3 IPX5 Bluetooth Earphone Ear-clip Design Hook Earbuds Open Audio TWS Sport Earphone', 759)">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="electronics" data-price="65652">
+                <img src="images/product11.jpg" alt="Apple iPhone 16 Pro Max">
+                <div class="product-info">
+                    <h3>Apple iPhone 16 Pro Max</h3>
+                    <div class="product-rating">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <span>(5.0)</span>
+                    </div>
+                    <p class="product-price">₱65652</p>
+                    <button onclick="addToCart('Apple iPhone 16 Pro Max', 65652)">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="electronics" data-price="949">
+                <img src="images/product12.jpg" alt="JISULIFE Handheld Fan Life9 Mini Portable Jet Fan Rechargeable USB Fans With 5 Gears Strong Wind Suitable For Summer Outdoor Camping">
+                <div class="product-info">
+                    <h3>JISULIFE Handheld Fan Life9 Mini Portable Jet Fan Rechargeable USB Fans With 5 Gears Strong Wind Suitable For Summer Outdoor Camping</h3>
+                    <div class="product-rating">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star-o"></i>
+                        <span>(4.0)</span>
+                    </div>
+                    <p class="product-price">₱949</p>
+                    <button onclick="addToCart('JISULIFE Handheld Fan Life9 Mini Portable Jet Fan Rechargeable USB Fans With 5 Gears Strong Wind Suitable For Summer Outdoor Camping', 949)">Add to Cart</button>
+                </div>
+            </div>
+
+            
+
+            <!-- Add more product cards as needed -->
+
+        </div>
+
+        <div id="cart-section" class="cart-section">
+            <div class="cart-header">
+                <h2>Your Shopping Cart</h2>
+                <span class="close" onclick="hideCart()"><i class="fa fa-times"></i></span>
+            </div>
+            <div class="cart-content">
+                <ul id="cart-items">
+                </ul>
+                <div class="cart-summary">
+                    <div class="cart-subtotal">
+                        <span>Subtotal:</span>
+                        <span id="cart-subtotal">₱0.00</span>
+                    </div>
+                    <div class="cart-shipping">
+                        <span>Shipping:</span>
+                        <span id="cart-shipping">₱0.00</span>
+                    </div>
+                    <div class="cart-total">
+                        <span>Total:</span>
+                        <span id="cart-total">₱0.00</span>
+                    </div>
+                </div>
+                <button id="checkout-button" onclick="checkout()">
+                    <i class="fa fa-lock"></i> Proceed to Checkout
+                </button>
+            </div>
+        </div>
+
+    </body>
+    <script src="script.js"></script>
+</html>
